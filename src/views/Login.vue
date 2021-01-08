@@ -62,7 +62,7 @@ export default defineComponent({
     PasswordReset
   },
   setup() {
-    const mainStore = useMainStore()
+    const main = useMainStore()
 
     const showLoginForm = ref(true)
     const showPasswordReset = ref(false)
@@ -87,18 +87,21 @@ export default defineComponent({
     };
 
     const login = () => {
-      mainStore.login(loginForm)
+      main.userLogin(loginForm)
     };
 
     const signup = () => {
-      mainStore.signup(signupForm)
+      main.userSignup(signupForm)
     };
 
     return {
-        toggleForm,
-        togglePasswordReset,
+        showLoginForm,
+        showPasswordReset,
         loginForm,
         signupForm,
+        //---------//
+        toggleForm,
+        togglePasswordReset,
         login,
         signup
     };

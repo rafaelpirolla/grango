@@ -5,4 +5,4 @@ import { createPinia } from 'pinia'
 
 import './assets/scss/app.scss'
 
-createApp(App).use(router).use(createPinia()).mount('#app')
+createApp(App).use(createPinia()).use(router).mount('#app')

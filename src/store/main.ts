@@ -4,38 +4,27 @@ import FireStore from "@/services/firestore";
 
 import router from "@/router/index";
 
-interface UserState {
-  user: string
-  initialized: boolean
-  error: string
-}
-
-export const useMainStore = defineStore({
+export default defineStore({
   id: 'main',
   state: () => ({
     userProfile: {}
   }),
-  getters: {
-  },
   actions: {
     async userLogin(form: { email: string; password: string; }) {
       const auth = Auth()
-      const { user } = auth.login(form.email, form.password)
+      const user = auth.login(form.email, form.password)
 
       this.fetchUserProfile(user)
     },
-    async signup(form: { name: string; title: string; email: string; password: string}) {
+    async userSignup(form: { name: string; title: string; email: string; password: string}) {
       const auth = Auth()
-      const store = FireStore()
+      const fireStore = FireStore()
       
       const { user } = auth.signUp(form.email, form.password)
     
-      // create user profile object in userCollections
-      await store.setUser(user.id, form.name, form.title)
+      await fireStore.setUser(user.id, form.name, form.title)
     },
     async fetchUserProfile(user: any) {
-      // fetch user profile
-      // const { usersCollection } = firebase()
       const fireStore = FireStore()
 
       this.userProfile = fireStore.loadUser(user.uid)
@@ -43,5 +32,5 @@ export const useMainStore = defineStore({
       // change route to dashboard
       router.push('/')
     },
-  },
+  }
 })

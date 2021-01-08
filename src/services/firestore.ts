@@ -34,7 +34,7 @@ export default () => {
   }
 
   const setUser = async (id: any, name: string, title: string) => {
-    return setCollectionId(userCollection, id, name, title);
+    return await setCollectionId(userCollection, id, name, title);
   }
   
   return {
