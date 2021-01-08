@@ -30,7 +30,7 @@ export default defineStore({
       this.userProfile = fireStore.loadUser(user.uid)
 
       // change route to dashboard
-      router.push('/')
+      // router.push('/')
     },
   }
 })

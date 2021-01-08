@@ -87,7 +87,7 @@ export default defineComponent({
     };
 
     const login = () => {
-      main.userLogin(loginForm)
+      main.userLogin(loginForm).then(toggleForm())
     };
 
     const signup = () => {
