@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.8.2",
+    "firebase": "^8.2.1",
+    "pinia": "^2.0.0-alpha.6",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0"
   },
