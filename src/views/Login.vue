@@ -52,9 +52,10 @@
 </template>
 
 <script>
-import PasswordReset from '@/components/PasswordReset'
 import { defineComponent, ref, reactive } from 'vue'
+import firebase from 'firebase'
 
+import PasswordReset from '@/components/PasswordReset'
 import useMainStore from '@/store/main'
 
 export default defineComponent({
@@ -64,7 +65,7 @@ export default defineComponent({
   setup() {
     const main = useMainStore()
 
-    const showLoginForm = ref(true)
+    const showLoginForm = firebase.auth().currentUser ? ref(false) : ref(true)
     const showPasswordReset = ref(false)
 
     const loginForm = reactive({

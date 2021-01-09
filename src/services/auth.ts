@@ -1,10 +1,4 @@
-import firebase from "firebase/app";
-
-import FIREBASE_CONFIG from "./.env.firebase";
-
-if (firebase.apps.length === 0) {
-  firebase.initializeApp(FIREBASE_CONFIG);
-}
+import firebase from "firebase";
 
 export default () => {
   const login = (email: string, password: string): any => {
